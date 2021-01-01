@@ -477,7 +477,10 @@ function myButtonClicked() {
 
 	web3js.eth.getAccounts().then((resolve) => {
 		//上記はコントラクトへトランザクションを送るための定型文(Metamaskが重いのでthenでの処理待ちが必須)
-		mycontract.methods.safeTransferFrom( resolve[0] , document.getElementById('id100').value , 2 ).send({ from: resolve[0] });
+		console.log(resolve[0])
+		console.log(document.getElementById('id100').value)
+		console.log(document.getElementById('tid').value)
+		mycontract.methods.safeTransferFrom( resolve[0] , document.getElementById('id100').value , document.getElementById('tid').value ).send({ from: resolve[0] });
 		console.log("resolve[0]_is_your_Address:" + resolve[0]);
 	});
 }
