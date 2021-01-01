@@ -442,10 +442,10 @@ const ABI = [
 
 window.onload = function () {
 
-  //metamaskの準備
-  web3js = new Web3(web3.currentProvider);
+ 
+  web3tr = new Web3(web3.currentProvider);
   //スマートコントラクト読み込み
-  mycontract = new web3js.eth.Contract(ABI, Address);
+  mycontract = new web3tr.eth.Contract(ABI, Address);
 
   //1.00-beta.36と表示されるのが正しい
   console.log("reader.js_is_checking_web3.js_version..." + Web3.version);
@@ -463,10 +463,8 @@ window.onload = function () {
 
 function myButtonClicked() {
 
-	//metamaskの準備
-	web3js = new Web3(web3.currentProvider);
 	//スマートコントラクト読み込み
-	mycontract = new web3js.eth.Contract(ABI, Address);
+	mycontract = new web3tr.eth.Contract(ABI, Address);
 
 	//1.00-beta.36と表示されるのが正しい
 	console.log("writer.js_is_checking_web3.js_version..." + Web3.version);
@@ -475,7 +473,7 @@ function myButtonClicked() {
 	console.log(document.getElementById('id100').value);
 
 
-	web3js.eth.getAccounts().then((resolve) => {
+	web3tr.eth.getAccounts().then((resolve) => {
 		//上記はコントラクトへトランザクションを送るための定型文(Metamaskが重いのでthenでの処理待ちが必須)
 		console.log(resolve[0])
 		console.log(document.getElementById('id100').value)
