@@ -438,28 +438,7 @@ const ABI = [
 
 
 //--------------ここからメイン処理---------------
-//------web3.jsの読み込み待ちのため、window.onloadにメイン処理を入れる--------
 
-window.onload = function () {
-
- 
-  web3tr = new Web3(web3.currentProvider);
-  //スマートコントラクト読み込み
-  mycontract = new web3tr.eth.Contract(ABI, Address);
-
-  //1.00-beta.36と表示されるのが正しい
-  console.log("reader.js_is_checking_web3.js_version..." + Web3.version);
-
-
-  mycontract.methods.name().call().then((fromblockchain1) => {
-    //上記はコントラクト上のname関数を呼び出すための定型句です。呼び出し結果は「fromblockchain1」で利用可
-    document.getElementById("id3").innerHTML = fromblockchain1;
-  });
-  mycontract.methods.symbol().call().then((fromblockchain2) => {
-    //上記はコントラクト上のsymbol関数を呼び出すための定型句です。呼び出し結果は「fromblockchain2」で利用可
-    document.getElementById("idn").innerHTML = fromblockchain2;
-  });
-}
 
 function myButtonClicked() {
 
